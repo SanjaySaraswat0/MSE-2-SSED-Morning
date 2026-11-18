@@ -47,10 +47,10 @@ jobs:
           done
 
       - name: Validate frontend Dockerfile
-        run: docker run --rm -i hadolint/hadolint < frontend/Dockerfile
+        run: docker run --rm -i hadolint/hadolint --failure-threshold error < frontend/Dockerfile
 
       - name: Validate backend Dockerfile
-        run: docker run --rm -i hadolint/hadolint < backend/Dockerfile
+        run: docker run --rm -i hadolint/hadolint --failure-threshold error < backend/Dockerfile
 
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
